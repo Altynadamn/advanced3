@@ -1,4 +1,4 @@
-# LlamaChat: Interactive RAG Chatbot with Document Upload
+# Interactive AI Assistant for the Constitution of Kazakhstan
 
 ## Project Overview
 LlamaChat is an interactive Retrieval-Augmented Generation (RAG) chatbot that leverages advanced language models to provide contextual responses based on uploaded documents. The app allows users to upload documents, such as .txt files, and query the chatbot for information within the documents. Built using Streamlit for the frontend, Ollama for model embeddings, and ChromaDB for data storage, LlamaChat offers a simple yet powerful interface for real-time question answering.
