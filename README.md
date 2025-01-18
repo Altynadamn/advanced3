@@ -1,7 +1,3 @@
-Certainly! Here's the updated version of your project documentation with a stronger focus on the AI chatbot’s capability to assist with the Constitution of Kazakhstan:
-
----
-
 # Interactive AI Assistant for the Constitution of Kazakhstan
 
 ## Project Overview
@@ -111,4 +107,3 @@ Special thanks to the following tools that made this project possible:
 
 ---
 
-With this updated focus, users can clearly understand that LlamaChat is an AI tool specifically designed for working with the Constitution of Kazakhstan and other legal documents, helping them gain insights and answers directly from the text.
