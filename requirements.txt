@@ -1,0 +1,8 @@
+streamlit
+langchain_community
+llama-index
+llama-index-llms-ollama
+chromadb
+sentence-transformers
+PyMuPDF
+tempfile
