@@ -1,109 +1,157 @@
-# Interactive AI Assistant for the Constitution of Kazakhstan
+---
+# ChromaDB and RAG Fusion Chatbot Application
 
-## Project Overview
-LlamaChat is an interactive Retrieval-Augmented Generation (RAG) chatbot designed to provide contextual answers based on uploaded documents, particularly focusing on the **Constitution of Kazakhstan**. This AI-powered assistant leverages advanced language models to process legal texts, making it an invaluable tool for understanding constitutional law, answering detailed questions, and assisting with legal research. Users can upload .txt files containing the Constitution of Kazakhstan or similar legal documents, and the chatbot will provide answers based on the content. 
+## Table of Contents
 
-Built using Streamlit for the frontend, Ollama for model embeddings, and ChromaDB for data storage, LlamaChat offers a seamless and intuitive interface for real-time, document-based question answering.
-
-## Key Features
-- **Document Upload**: Easily upload the **Constitution of Kazakhstan** (or other legal documents) for in-depth interaction.
-- **Contextual Question Answering**: Ask questions about the Constitution and receive precise, context-aware answers directly from the document.
-- **Real-time Interaction**: Get instant, AI-generated responses, with relevant sections of the Constitution referenced in real-time.
-- **Persistent Data Storage**: Document embeddings are stored in ChromaDB, ensuring fast and scalable retrieval for future queries without needing to reprocess the text.
-- **Customizable Interface**: Users can select models and adjust settings to optimize the experience, depending on the complexity of the questions or the focus of the document.
-
-## Technologies Used
-- **Streamlit**: For building the user-friendly web interface.
-- **Ollama**: For creating high-quality embeddings and generating model responses.
-- **ChromaDB**: To store document embeddings persistently and facilitate efficient document retrieval.
-- **Python**: Main programming language for backend logic.
-- **SentenceTransformers**: For document embedding and vector-based similarity search.
-
-## Installation
-
-### Prerequisites
-Ensure you have the following installed:
-- Python 3.7+
-- pip (Python package manager)
-
-### Steps to Run Locally
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Altynadamn/OllamaChat.git
-   cd LlamaChat
-   ```
-2. Create a virtual environment (optional but recommended):
-   ```bash
-   python -m venv venv
-   ```
-3. Activate the virtual environment:
-   - On Windows:
-     ```bash
-     .\venv\Scripts\activate
-     ```
-   - On macOS/Linux:
-     ```bash
-     source venv/bin/activate
-     ```
-4. Install the dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-5. Run the application:
-   ```bash
-   streamlit run app.py
-   ```
-6. Open your browser and go to the URL shown in the terminal, usually `http://localhost:8501`.
-
-## Usage
-1. **Upload the Constitution of Kazakhstan**: Upload the full text of the **Constitution of Kazakhstan** (or other legal documents). The chatbot will process the content and store it for querying.
-2. **Ask Questions**: Type any questions related to the Constitution or legal provisions. For example:
-   - *"What are the key principles of the Republic of Kazakhstan?"*
-   - *"What does Article 2 of the Constitution state about sovereignty?"*
-   - *"How does the Constitution define the responsibilities of the President?"*
-   - *"What is the legal basis for Kazakhstan's independence?"*
-3. **Retrieve Contextual Information**: The chatbot will reference the uploaded Constitution to provide specific and accurate answers based on the relevant sections or articles.
-4. **Persistent Storage**: All document embeddings are stored in ChromaDB, allowing future queries to be answered quickly without reprocessing the document every time.
-
-## Focus on the Constitution of Kazakhstan
-LlamaChat is particularly tailored for exploring and understanding the **Constitution of Kazakhstan**. The chatbot can:
-- Analyze and interpret articles, clauses, and provisions of the Constitution.
-- Provide detailed responses about the legal and historical context of specific articles.
-- Assist legal professionals, students, and educators in answering questions related to constitutional law in Kazakhstan.
-- Offer insights into Kazakhstan’s governance, legal structure, and key principles such as sovereignty, independence, and the rule of law.
-
-This makes LlamaChat an essential tool for anyone needing detailed, real-time legal information from the **Constitution of Kazakhstan**.
-
-## Configuration
-You can customize the following settings:
-- **Model**: Choose from available AI models, such as Llama 3.2, to optimize the chatbot’s ability to process and answer constitutional queries.
-- **Storage**: Adjust the database path if necessary (SQLite by default via ChromaDB).
-
-## Contribution
-We welcome contributions to enhance this project! To contribute:
-1. **Fork the Repository**: Create a copy of the repository to work on your changes.
-2. **Create a Feature Branch**: Use a descriptive branch name for your changes.
-   ```bash
-   git checkout -b feature/your-feature
-   ```
-3. **Commit Your Changes**: Provide clear, concise commit messages.
-   ```bash
-   git commit -m "Added feature to analyze constitutional law"
-   ```
-4. **Push Changes**:
-   ```bash
-   git push origin feature/your-feature
-   ```
-
-## License
-This project is licensed under the MIT License. See the LICENSE file for details.
-
-## Acknowledgments
-Special thanks to the following tools that made this project possible:
-- **Streamlit** for the easy-to-use web interface.
-- **ChromaDB** for persistent and scalable data storage.
-- **Ollama** for providing powerful AI embeddings and language model support.
-- **SentenceTransformers** for efficient document embedding and similarity searching.
+1. [Overview](#overview)
+2. [Key Features](#key-features)
+3. [Installation Instructions](#installation-instructions)
+4. [How to Use](#how-to-use)
+5. [File Breakdown](#file-breakdown)
+6. [Technical Insights](#technical-insights)
+7. [Sample Queries](#sample-queries)
+8. [License](#license)
 
 ---
 
+## Overview
+
+This project builds on the **Assignment 3** chatbot, enhancing its functionality by implementing **Multi Query** and **RAG Fusion** techniques. The application utilizes **ChromaDB** for efficient document storage and retrieval, paired with the **Ollama llama3.2** model for generating precise answers. This setup allows the chatbot to process multiple queries simultaneously and retrieve the most relevant documents, resulting in more accurate and context-rich responses.
+
+The app is designed with an intuitive **Streamlit** interface, allowing users to upload custom documents and interact with the assistant to get tailored answers based on the **Constitution of Kazakhstan** or other uploaded content.
+
+---
+
+## Key Features
+
+- **Multi Query Expansion**: Automatically generates variations of user queries to capture a wider context and improve document retrieval.
+- **RAG Fusion**: Combines relevant content from multiple sources to provide richer and more accurate answers.
+- **Constitution Querying**: Preloads the full **Constitution of Kazakhstan** for accurate, legally grounded responses.
+- **Custom Document Uploads**: Users can upload `.txt` files to enhance the range of topics the assistant can respond to.
+- **Fast and Efficient Retrieval**: Leverages **ChromaDB** for vector-based document retrieval.
+- **Streamlit Interface**: A clean and simple interface for querying, file uploads, and interacting with the assistant.
+
+---
+
+## Installation Instructions
+
+### Prerequisites
+
+Before starting, ensure the following are installed:
+
+- Python 3.9 or later
+- pip
+- **Ollama server** (Make sure the Ollama server is running, and adjust the URL if necessary)
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone <repository-link>
+   cd <repository-name>
+   ```
+
+2. Install required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Download the English version of the **Constitution of the Republic of Kazakhstan** and save it as `constitution.txt` in your project directory.
+
+4. Run the Streamlit application:
+   ```bash
+   streamlit run app.py
+   ```
+
+5. Open the application in your browser (Streamlit will provide a local URL).
+
+---
+
+## How to Use
+
+1. **Multi Query Expansion for Constitution Queries**:
+
+   - The assistant will automatically generate multiple versions of your query to expand the search space and retrieve more relevant documents.
+   - Detailed answers will cite specific articles and sections of the Constitution.
+
+2. **Custom Document Upload**:
+
+   - Upload `.txt` files to extend the assistant's knowledge base. It will incorporate the content from these documents to respond to your queries.
+   - The assistant will perform **RAG Fusion** to combine information from both the Constitution and the uploaded documents for a richer response.
+
+3. **Interacting with the Assistant**:
+
+   - Type your query in the provided text box, and the assistant will generate a response using the retrieved documents and the RAG pipeline.
+
+---
+
+## File Breakdown
+
+1. **app.py** ([source](src/app.py)):  
+   This is the main application file that implements the RAG Fusion pipeline, query processing, and Streamlit UI components.
+
+2. **constitution.txt**:  
+   Contains the full text of the **Constitution of the Republic of Kazakhstan**.
+
+3. **requirements.txt** ([source](requirements.txt)):  
+   Lists all the required Python libraries for the project.
+
+4. **style.css** ([source](src/style.css)):  
+   Custom styles for the Streamlit interface.
+
+---
+
+## Technical Insights
+
+### Multi Query Expansion
+
+The assistant generates multiple variations of a user’s query, allowing it to retrieve a wider range of relevant documents. This helps capture different phrasings and nuances in the user’s input, leading to a more thorough and precise response.
+
+### RAG Fusion Workflow
+
+1. **Query Expansion**: The system creates multiple variations of a user’s query to broaden document retrieval.
+2. **Document Retrieval**: The system queries **ChromaDB** for relevant documents, such as content from the Constitution or uploaded files.
+3. **Fusion of Contexts**: The retrieved documents are combined to provide a more comprehensive context for answering the query.
+4. **Response Generation**: Using **Ollama llama3.2**, the assistant generates contextually aware responses based on the fused documents.
+
+### Citing Articles and Sections
+
+The system can refer to specific articles and sections of the Constitution in its responses for greater clarity. For example:
+
+> "According to Article 5, Section 2 of the Constitution, ..."
+
+---
+
+## Sample Queries
+
+### Example 1: Constitution Query
+
+**Input**: What are the rights of citizens in Kazakhstan?  
+**Response**: According to Article 12, Section 1 of the Constitution, citizens of Kazakhstan are guaranteed the right to freedom, equality, and personal dignity.
+
+### Example 2: Multi Query Expansion
+
+**Input**: What is the official language of Kazakhstan?  
+**Generated Queries**:
+- What language is officially recognized in Kazakhstan?
+- What is the state language of Kazakhstan?
+- Which language is used for official purposes in Kazakhstan?  
+
+**Response**: According to Article 7, Section 1 of the Constitution, the official language of Kazakhstan is Kazakh.
+
+### Example 3: RAG Fusion with Custom Documents
+
+**Uploaded Document**:  
+`economy.txt` contains the following text:
+> "Kazakhstan’s economy is heavily dependent on oil exports."
+
+**Input**: What drives Kazakhstan's economy?  
+**Response**: Based on the uploaded document, Kazakhstan’s economy is largely driven by oil exports.
+
+---
+
+## License
+
+This project is released under the **MIT License**. You are free to use, modify, and distribute the code, provided proper attribution is given.
+
+---
